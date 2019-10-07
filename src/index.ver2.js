@@ -12,7 +12,7 @@ app.use(cors());
 app.use(bodyParser.json());
 
 
-const list = [];
+let list = [];
 
 
 /** GET RETURNS ALL PRODUCT */
@@ -28,6 +28,13 @@ app.post("/", function(req, res){
     list.push(inputRequest);
     
     res.json(inputRequest);
+});
+
+/** POST SAVE PRODUCT INTO DB */
+app.put("/", function(req, res){
+    list = req.body;
+
+    res.json(list);
 });
 
 
